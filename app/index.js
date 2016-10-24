@@ -1,4 +1,4 @@
-var UserData = {
+var USER_DATA = {
 	name: "Grant",
 	username: "ghwilley",
 	image: "http://cdn3-www.cattime.com/assets/uploads/2011/08/best-kitten-names-1.jpg"
@@ -27,14 +27,26 @@ var ProfileLink = React.createClass({
 
 var ProfileName = React.createClass({
 	render: function () {
-		return: (
+		return (
 				<div>{this.props.name}</div>
+			)
+	}
+});
+
+var Avatar = React.createClass({
+	render: function () {
+		return (
+				<div> 
+					<ProfilePic imageUrl={this.props.user.image} />
+					<ProfileName name={this.props.user.name} />
+					<ProfileLink username={this.props.user.username} />
+				</div>
 			)
 	}
 })
 
 ReactDOM.render(
-	<HelloWorld name="Dude" />,
+	<Avatar user={USER_DATA} />,
 	document.getElementById('app')
 );
 
